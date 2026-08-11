@@ -1,0 +1,23 @@
+@import "tailwindcss";
+:root{
+--bg:#f8fafc;
+--surface:#ffffff;
+--text:#111827;
+--muted:#6b7280;
+--border:#e5e7eb;
+}
+.dark-theme{
+--bg:#111827;
+--surface:#1f2937;
+--text:#f9fafb;
+--muted:#9ca3af;
+--border:#374151;
+}
+body{
+background:var(--bg);
+color:var(--text);
+}
+.dark-theme body{
+background:var(--bg);
+color:var(--text);
+}
