@@ -6,15 +6,16 @@ const handleChange=e=>{
 setForm({...form,[e.target.name]:e.target.value})
 }
 const handleSubmit=async e=>{
-e.preventDefault()
-try{
-await createProject(form)
-setForm({title:"",description:"",status:"active",startDate:"",endDate:""})
-onCreated()
-}catch(error){
-alert(error.response?.data?.message||"Unable to create project")
-}
-}
+    e.preventDefault()
+    try{
+    const payload={...form,startDate:form.startDate||null,endDate:form.endDate||null}
+    await createProject(payload)
+    setForm({title:"",description:"",status:"active",startDate:"",endDate:""})
+    onCreated()
+    }catch(error){
+    alert(error.response?.data?.message||error.response?.data?.errors?.[0]?.msg||"Unable to create project")
+    }
+    }
 return(
 <form onSubmit={handleSubmit} className="bg-[var(--surface)] border border-[var(--border)] p-6 rounded-xl shadow mb-8 text-[var(--text)]">
 <h2 className="text-2xl font-bold mb-5">Create Project</h2>

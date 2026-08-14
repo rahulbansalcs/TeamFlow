@@ -41,7 +41,7 @@ return(
 <option value="">All Status</option>
 <option value="active">Active</option>
 <option value="completed">Completed</option>
-<option value="on_hold">On Hold</option>
+<option value="archived">Archived</option>
 </select>
 <select value={sort} onChange={e=>setSort(e.target.value)} className="border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] p-2 rounded">
 <option value="created_at">Newest</option>

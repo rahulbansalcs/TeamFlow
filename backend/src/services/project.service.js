@@ -7,28 +7,28 @@ import {
     } from "../repositories/project.repository.js"
     
     export const createNewProject=async(data,userId)=>{
-    return await createProject({
-    title:data.title,
-    description:data.description,
-    ownerId:userId,
-    startDate:data.startDate,
-    endDate:data.endDate
-    })
-    }
+        return await createProject({
+        title:data.title,
+        description:data.description,
+        ownerId:userId,
+        startDate:data.startDate||null,
+        endDate:data.endDate||null
+        })
+        }
     
     export const getAllProjects=async(userId,filters)=>{
         return await getProjectsByOwner(userId,filters)
         }
     
-    export const editProject=async(id,data)=>{
-    return await updateProject(id,{
-    title:data.title,
-    description:data.description,
-    status:data.status,
-    startDate:data.startDate,
-    endDate:data.endDate
-    })
-    }
+        export const editProject=async(id,data)=>{
+            return await updateProject(id,{
+            title:data.title,
+            description:data.description,
+            status:data.status,
+            startDate:data.startDate||null,
+            endDate:data.endDate||null
+            })
+            }
     
     export const removeProject=async(id)=>{
     return await deleteProject(id)
