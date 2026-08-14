@@ -52,6 +52,12 @@ app.use("/api/auth",authRoutes)
 app.use("/api/users",userRoutes)
 app.use("/api/projects",projectRoutes)
 app.use("/api/projects",memberRoutes)
+app.get("/", (req, res) => {
+    res.status(200).json({
+      success: true,
+      message: "TeamFlow API is up and running!"
+    });
+  });
 app.use((req,res)=>{
     res.status(404).json({
     success:false,
